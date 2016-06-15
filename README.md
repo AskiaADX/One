@@ -4,7 +4,9 @@ One, is the first functional AskiaDesignPage designed for Askiadesign6. It is a 
 
 ## Desktop preview
 
-![desktop screenshot of One ADP](https://raw.githubusercontent.com/AskiaADX/adp-One/master/adp-one-screenshot.png)
+![Desktop screenshot of One ADP](https://raw.githubusercontent.com/AskiaADX/adp-One/master/adp-one-screenshot.png)
 
 
 ## Mobile preview
+
+![Mobile screenshot of One ADP](https://raw.githubusercontent.com/AskiaADX/adp-One/master/adp-one-mobile-screenshot.png)
