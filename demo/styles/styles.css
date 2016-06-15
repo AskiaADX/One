@@ -236,7 +236,7 @@ form.question {
     line-height: 1.5em;
     background: rgba(255,255,255,0.2);
     border-radius: .2em;
-    border: .085em solid #DF4335;
+    border: .05em solid #DF4335;
     color: #DF4335;
     margin: .25em 0;
     cursor: pointer;
@@ -260,13 +260,13 @@ form.question {
 
 .response-list > li > label:hover {
     background: rgba(255,255,255,0.6);
-    border: .085em solid #DF4335;
+    border: .05em solid #DF4335;
 }
 
 .response-list > li > input[type=checkbox]:checked + label {
     background: #DF4335;
     color: #FFF;
-    border: .085em solid #c7372a;
+    border: .05em solid #c7372a;
 }
 
 .response-list > li > input[type=checkbox]:checked + label::after {
@@ -296,7 +296,7 @@ form.question {
     font-family:"MaxWeb W03 Bold";
     background: #DF4335;
     color: #EEE;
-    border: .085em solid #cb3628;
+    border: .05em solid #cb3628;
     border-radius: .2em;
     padding: .2em 1.5em;
     line-height: 1.85em;
@@ -306,7 +306,7 @@ form.question {
 .next:hover {
     background: #e4493b;
     color: #FFF;
-    border: .085em solid #cb3628;
+    border: .05em solid #cb3628;
     box-shadow: 0 .2em 1em rgba(0, 0, 0, 0.5);
 }
 
