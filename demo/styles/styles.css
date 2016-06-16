@@ -280,34 +280,38 @@ form.question {
     padding: 2em 0;
 }
 
-.previous {
-    color: #FFF;
-    margin-right: 2em;
-    transition: color .15s ease-in, text-shadow .15s ease-in;
-}
-
-.previous:hover {
-    color: #FFF;
-    text-shadow: 0 .2em 1em rgba(0, 0, 0, 0.5);
-}
-
-.next {
+.navigation > button {
     -webkit-appearance: none;
     font-family:"MaxWeb W03 Bold";
-    background: #DF4335;
-    color: #EEE;
-    border: .05em solid #cb3628;
     border-radius: .2em;
     padding: .2em 1.5em;
     line-height: 1.85em;
-    transition: color ease-in .15s, background ease-in .15s, box-shadow .15s ease-in;
+}
+
+.previous {
+    color: #FFF;
+    background: transparent;
+    border: .15em solid #FFF;
+    margin-right: 2em;
+    transition: color .15s ease-in, background ease-in .15s;
+}
+
+.previous:hover {
+    color: #283B49;
+    background: #FFF;
+}
+
+.next {
+    background: #DF4335;
+    color: #EEE;
+    border: .15em solid #cb3628;
+    transition: color ease-in .15s, background ease-in .15s, border ease-in .15s;
 }
 
 .next:hover {
-    background: #e4493b;
+    background: #283B49;
     color: #FFF;
-    border: .05em solid #cb3628;
-    box-shadow: 0 .2em 1em rgba(0, 0, 0, 0.5);
+    border: .15em solid #283B49;
 }
 
 /* FOOTER */
