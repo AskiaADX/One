@@ -236,9 +236,9 @@ form.question {
     line-height: 1.5em;
     background: rgba(255,255,255,0.2);
     border-radius: .2em;
-    border: .05em solid #DF4335;
+    border: .1em solid #DF4335;
     color: #DF4335;
-    margin: .25em 0;
+    margin: .1em 0;
     cursor: pointer;
     min-width: 7em;
     transition: background ease-in .25s, color ease-in .25s, border ease-in .25s;
@@ -260,13 +260,13 @@ form.question {
 
 .response-list > li > label:hover {
     background: rgba(255,255,255,0.6);
-    border: .05em solid #DF4335;
+    border: .1em solid #DF4335;
 }
 
 .response-list > li > input[type=checkbox]:checked + label {
     background: #DF4335;
     color: #FFF;
-    border: .05em solid #c7372a;
+    border: .1em solid #c7372a;
 }
 
 .response-list > li > input[type=checkbox]:checked + label::after {
@@ -276,7 +276,7 @@ form.question {
 /* NAVIGATION */
 .navigation {
     text-align: center;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     padding: 2em 0;
 }
 
@@ -294,7 +294,7 @@ form.question {
 .previous {
     color: #FFF;
     background: transparent;
-    border: .15em solid #FFF;
+    border: .1em solid #FFF;
     margin-right: 2em;
     transition: color .15s ease-in, background ease-in .15s;
 }
@@ -307,14 +307,14 @@ form.question {
 .next {
     background: #DF4335;
     color: #EEE;
-    border: .15em solid #cb3628;
+    border: .1em solid #cb3628;
     transition: color ease-in .15s, background ease-in .15s, border ease-in .15s;
 }
 
 .next:hover {
     background: #283B49;
     color: #FFF;
-    border: .15em solid #283B49;
+    border: .1em solid #283B49;
 }
 
 /* FOOTER */
