@@ -282,6 +282,9 @@ form.question {
 
 .navigation > button {
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
     font-family:"MaxWeb W03 Bold";
     border-radius: .2em;
     padding: .2em 1.5em;
