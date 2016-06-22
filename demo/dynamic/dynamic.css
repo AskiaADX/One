@@ -109,3 +109,9 @@ form.question {
         width: 80vw;
     }
 }
+
+/* QUESTION CAPTION FONT SIZE */
+
+.caption {
+    font-size: 1.25rem;
+}
