@@ -112,6 +112,16 @@ form.question {
 
 /* QUESTION CAPTION FONT SIZE */
 
+.error {
+    background: rgba(223, 67, 53, .8);
+    border: .1em solid #DF4335;
+    border-radius: .2em;
+    color: #FFF;
+    padding: .4em 1.5em;
+}
+
+/* QUESTION CAPTION FONT SIZE */
+
 .caption {
     font-size: 1.25rem;
 }
