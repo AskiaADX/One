@@ -54,12 +54,22 @@ html {
     color: #FFF;
 }
 
-/* SET HEADER LOCATION TO LEFT (FLEX-START), CENTER (CENTER) OR RIGHT (FLEX-END)*/
+/* SET HEADER LOCATION TO LEFT (FLEX-START), CENTER (CENTER) OR RIGHT (FLEX-END) */
 
 header {
     -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     align-self: auto;
+}
+
+/* SET HEADER LOCATION TO LEFT (FLEX-START), CENTER (CENTER) OR RIGHT (FLEX-END) WHEN VIEWPORT < 970PX */
+
+@media (max-width: 970px) {
+    header {
+        -webkit-align-self: center;
+        -ms-flex-item-align: center;
+        align-self: center;
+    }
 }
 
 /* SET HEADER CONTENT PADDING */
@@ -78,4 +88,24 @@ header div {
 
 #headerContent > img {
     height: 80px;
+}
+
+/* MAIN FORM WRAPPER:
+- USE JUSTIFY-CONTENT TO SET FORM VERTICAL ALIGNMENT (FLEX-START / CENTER / FLEX-END)
+- SET FORM WIDTH
+- SET FORM MARGIN
+- SET FORM PADDING */
+form.question {
+    justify-content: center;
+    width: 60vw;
+    margin: 2em auto;
+    padding: 1em;
+}
+
+/* MAIN FORM WRAPPER: SET FORM WIDTH WHEN VIEWPORT < 970PX */
+
+@media (max-width: 970px) {
+    form.question {
+        width: 80vw;
+    }
 }
