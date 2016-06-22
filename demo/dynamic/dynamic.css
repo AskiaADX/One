@@ -215,6 +215,18 @@ footer {
     order: 0;
 }
 
+/* FOOTER TEXT DECORATOR RULES:
+- SET MARGIN
+- SET PADDING
+- SET FONT-SIZE
+*/
+
+.footerText > p {
+    margin: 0 auto;
+    padding: .5em 0 .5em .5em;
+    font-size: .9rem;
+}
+
 /* PROGRESS BAR PADDING */
 
 .progressbar {
@@ -265,4 +277,27 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
     background-color: #DF4335;
     border-radius: .2em 0 0 .2em;
+}
+
+/* PROGRESS BAR & FOOTER TEXT RULES WHEN VIEWPORT < 600PX */
+
+@media (max-width: 600px) {
+    progress {
+        width: 10em;
+    }
+    .progressbar::before {
+        padding: 0 5em;
+    }
+    .footerText > p {
+        font-size: .8rem;
+    }
+}
+
+/* FOOTER TEXT RULES WHEN VIEWPORT < 460PX */
+
+@media (max-width: 460px) {
+    .footerText > p {
+        font-size: .6rem;
+        line-height: 3;
+    }
 }
