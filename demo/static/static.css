@@ -106,3 +106,12 @@ form.question {
     display: flex;
     flex-direction: column;
 }
+
+/* NAV BUTTON BASE STYLING */
+
+.navigation > button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+}

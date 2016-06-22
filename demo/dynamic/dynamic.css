@@ -131,9 +131,65 @@ form.question {
 /* NAVIGATION BUTTONS COMMON RULES:
 - SET TEXT-ALIGN TO ALIGN BTNS (LEFT, CENTER OR RIGHT)
 - SET FONT-SIZE
-- SET PADDING */
+- SET PADDING
+*/
 .navigation {
     text-align: center;
     font-size: 1.25rem;
     padding: 2em 0;
+}
+
+/* NAV BUTTON BASE STYLING:
+- SET FONT STACK
+- SET BORDER-RADIUS
+- SET PADDING
+- SET LINE-HEIGHT
+*/
+
+.navigation > button {
+    font-family:"MaxWeb W03 Bold";
+    border-radius: .2em;
+    padding: .2em 1.5em;
+    line-height: 1.85em;
+}
+
+/* BACK BUTTON SPECIFIC STYLING:
+- SET FONT COLOR
+- SET BG
+- SET BORDER
+- SET MARGIN
+- SET TRANSITION (OPTIONAL)
+*/
+
+.previous {
+    color: #FFF;
+    background: transparent;
+    border: .1em solid #FFF;
+    margin-right: 2em;
+    transition: color .15s ease-in, background ease-in .15s;
+}
+
+.previous:hover {
+    color: #283B49;
+    background: #FFF;
+}
+
+/* NEXT BUTTON SPECIFIC STYLING:
+- SET FONT COLOR
+- SET BG
+- SET BORDER
+- SET TRANSITION (OPTIONAL)
+*/
+
+.next {
+    background: #DF4335;
+    color: #EEE;
+    border: .1em solid #cb3628;
+    transition: color ease-in .15s, background ease-in .15s, border ease-in .15s;
+}
+
+.next:hover {
+    background: #283B49;
+    color: #FFF;
+    border: .1em solid #283B49;
 }
