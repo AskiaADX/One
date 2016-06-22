@@ -193,3 +193,24 @@ form.question {
     color: #FFF;
     border: .1em solid #283B49;
 }
+
+/* FOOTER LAYOUT & POSITIONING OPTIONS:
+- SET ALIGN-SELF RULES TO FLEX-START, CENTER, FLEX-END OR STRETCH TO POSITION IT AS REQUIRED
+- SET BG
+*/
+footer {
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    background: rgba(255,255,255,0.4);
+}
+
+/* FOOTER TEXT LAYOUT RULE:
+- SET FLEX ORDER TO 1 TO INVERT POSITIONS OF FOOTERTEXT & PROGRESS BAR
+*/
+
+.footerText {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+}
