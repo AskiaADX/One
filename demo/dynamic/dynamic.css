@@ -214,3 +214,55 @@ footer {
     -ms-flex-order: 0;
     order: 0;
 }
+
+/* PROGRESS BAR PADDING */
+
+.progressbar {
+    padding: .5em .5em .5em 0;
+}
+
+/* PROGRESS BAR VALUE STYLING:
+- REMOVE THE PSEUDO-SELECTOR TO HIDE THE PROGRESS VALUE
+- IF ENABLED:
+    - SET PROGRESS VALUE FONT-SIZE
+    - SET PROGRESS VALUE FONT COLOR
+    - SET PROGRESS VALUE PADDING
+*/
+
+.progressbar::before {
+    font-size: .75rem;
+    color: #283B49;
+    content: '33%';
+    position: absolute;
+    padding: 0 10em;
+}
+
+/* DECORATOR STYLES FOR THE HTML5 PROGRESS ELEMENT:
+- SET PROGRESS WIDTH
+- SET PROGRESS HEIGHT
+*/
+
+progress {
+    width: 17em;
+    height: 1em;
+}
+
+/* DECORATOR STYLES FOR THE HTML5 PROGRESS ELEMENT FOR WEBKIT BROWSERS:
+- SET PROGRESS BG
+- SET PROGRESS BORDER-RADIUS
+*/
+
+progress::-webkit-progress-bar {
+    background-color: #EEE;
+    border-radius: .2em;
+}
+
+/* DECORATOR STYLES FOR THE HTML5 PROGRESS ELEMENT FOR GECKO BROWSERS:
+- SET PROGRESS BG
+- SET PROGRESS BORDER-RADIUS
+*/
+
+progress::-webkit-progress-value {
+    background-color: #DF4335;
+    border-radius: .2em 0 0 .2em;
+}
