@@ -115,3 +115,25 @@ form.question {
 .caption {
     font-size: 1.25rem;
 }
+
+/* QUESTION INTRUCTION RULES:
+- FONT-SIZE
+- FONT COLOR
+- TEXT-TRANSFORM
+- MORE CAN BE ADDED (TEXT-ALIGN, TEXT-SHADOW, LETTER-SPACING, ...) */
+
+.instruction {
+    font-size: .95rem;
+    text-transform: uppercase;
+    color: #888;
+}
+
+/* NAVIGATION BUTTONS COMMON RULES:
+- SET TEXT-ALIGN TO ALIGN BTNS (LEFT, CENTER OR RIGHT)
+- SET FONT-SIZE
+- SET PADDING */
+.navigation {
+    text-align: center;
+    font-size: 1.25rem;
+    padding: 2em 0;
+}

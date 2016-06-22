@@ -106,25 +106,3 @@ form.question {
     display: flex;
     flex-direction: column;
 }
-
-/* QUESTION SHORTCUT FOR DEMO ONLY - DO NOT BRING INTO ADP */
-
-.caption > p.label::before {
-    content: '1.';
-    color: #DF4335;
-    position: absolute;
-    margin-left: -2em;
-    text-align: right;
-}
-
-/* QUESTION INTRUCTION RULES:
-- FONT-SIZE
-- FONT COLOR
-- TEXT-TRANSFORM
-- MORE CAN BE ADDED (TEXT-ALIGN, TEXT-SHADOW, LETTER-SPACING, ...) */
-
-.instruction {
-    font-size: .95rem;
-    text-transform: uppercase;
-    color: #888;
-}
