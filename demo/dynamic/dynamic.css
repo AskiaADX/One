@@ -43,6 +43,8 @@ html {
     font-size: 16px;
 }
 
+/* DEFAULT TEXT SELECTION STYLING RULES  */
+
 ::selection {
     background: #283B49;
     color: #FFF;
@@ -64,4 +66,16 @@ header {
 
 header div {
     padding: .3em 1em 0 1em;
+}
+
+/* SET SURVEY TITLE FONT SIZE */
+
+#headerContent > .surveyTitle {
+    font-size: 2rem;
+}
+
+/* SET LOGO HEIGHT TO INCREASE / DECREASE LOGO SIZE - MUST BE SET / CANNOT BE LEFT EMPTY */
+
+#headerContent > img {
+    height: 80px;
 }

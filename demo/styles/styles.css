@@ -1,12 +1,3 @@
-#headerContent > .surveyTitle {
-    margin: 0;
-    font-size: 2rem;
-}
-
-#headerContent > img {
-    height: 80px;
-}
-
 /* QUESTION */
 form.question {
     -webkit-box-ordinal-group: 3;

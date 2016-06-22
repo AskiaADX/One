@@ -81,3 +81,9 @@ header {
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
 }
+
+/* RESET MARGIN TO 0 IF USING A SURVEY TITLE INSTEAD OF A LOGO */
+
+#headerContent > .surveyTitle {
+    margin: 0;
+}
