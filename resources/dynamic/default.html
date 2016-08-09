@@ -5,11 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Askia - software for surveys">
-    <title>Design One - Askia - Software for surveys</title>
-    <link href='static/normalize.min.css' rel='stylesheet' type='text/css'>
-    <link href='static/static.min.css' rel='stylesheet' type='text/css'>
-    <link href='dynamic/dynamic.min.css' rel='stylesheet' type='text/css'>
-    <link href='static/demo.min.css' rel='stylesheet' type='text/css'>
+    <title>{%= currentADC.propValue("window_title")%}</title>
+    <askia-head />
     <!-- TODO All favicons -->
     <!-- TODO ADD -> All social media metadata -->
 </head>
@@ -17,73 +14,45 @@
 <body class="AdpWrapper">
     <header>
         <div id="headerContent">
-            <!--- OPTIONAL SURVEY TITLE / HEADER TEXT
-            <p class="surveyTitle">Design One ADP</p>
-            --->
-            <!--- OPTIONAL SURVEY IMAGE / LOGO--->
-            <img src="static/img/logo.svg" />
+            {%if currentADC.propValue("page_title") <> "" then%}
+            <p class="surveyTitle">{%= currentADC.propValue("page_title")%}</p>
+            {%end if%}
+            {%if currentADC.propValue("logo_src") <> "" then%}
+            <img src="{%= currentADC.propValue("logo_src")%}" alt="{%= currentADC.propValue("logo_alt")%}" />
+            {%end if%}
         </div>
     </header>
     <!--- ASKIA FORM BEGINS HERE --->
-    <form class="question">
+    <askia-form>
         <div class="caption">
-            <p class="error">This page contains one or several errors: a response is expected for question `Q1`</p>
-            <p class="label">Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
+            {% If CurrentQuestions.Errors.Count Then %}
+            <div class="askia-errors-summary">
+                <p>This page contains one or several errors</p>
+                <ul>
+                    {% Dim errorIndex = 1
+                    For errorIndex = 1 To CurrentQuestions.Errors.Count %}
+                    <li>{%= CurrentQuestions.Errors[errorIndex].Message %}</li>
+                    {% Next %}
+                </ul>
+            </div>
+            {% End If %}
             <p class="instruction">Select as many responses as you want</p>
         </div>
-        <div class="responses">
-            <!--- ASKIA ADC BEGINS HERE --->
-            <ul class="response-list">
-                <li>
-                    <input type="checkbox" id="responseA" value="r1">
-                        <label for="responseA">Response A</label>
-                    </input>
-                </li>
-                <li>
-                    <input type="checkbox" id="responseB" value="r2">
-                        <label for="responseB">Response B</label>
-                    </input>
-                </li>
-                <li>
-                    <input type="checkbox" id="responseC" value="r3">
-                        <label for="responseC">Response C</label>
-                    </input>
-                </li>
-                <li>
-                    <input type="checkbox" id="responseD" value="r4">
-                        <label for="responseD">Response D</label>
-                    </input>
-                </li>
-                <li>
-                    <input type="checkbox" id="responseE" value="r5">
-                        <label for="responseE">Response E</label>
-                    </input>
-                </li>
-                <li>
-                    <input type="checkbox" id="responseF" value="r6">
-                        <label for="responseF">Response F</label>
-                    </input>
-                </li>
-                <li>
-                    <input type="checkbox" id="responseG" value="r7">
-                        <label for="responseG">Response G</label>
-                    </input>
-                </li>
-            </ul>
-            <!--- ASKIA ADC ENDS HERE --->
-        </div>
+        <askia-questions />
         <div class="navigation">
-            <button class="previous" title="Go back to the previous question">Back</button>
-            <button class="next" title="Go to the next question">Next</button>
+            {% If CurrentADP.Var("display_previous") = True Then %}
+            <button type="submit" class="previous" title="Go back to the previous question">Back</button>
+            {%end if%}
+            <button type="submit" class="next" title="Go to the next question">Next</button>
         </div>
-    </form>
+    </askia-form>
     <!--- ASKIA FORM ENDS HERE --->
     <footer>
         <div class="footerText">
-            <p>Powered by Askia &copy; 2016, all rights reserved</p>
+            <p>{%= CurrentADP.Var("footer_text") %}</p>
         </div>
         <div class="progressbar">
-            <progress max="100" value="33"></progress>
+            <progress max="100" value="{%= Interview.Progress%}"></progress>
         </div>
     </footer>
 </body>

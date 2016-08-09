@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page  xmlns="http://www.askia.com/2.1.0/ADPSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.askia.com/2.1.0/ADPSchema https://raw.githubusercontent.com/AskiaADX/ADXSchema/2.1.0/ADPSchema.xsd"
+          version="2.1.0"
+          askiaCompat="5.4.2">
+  <info>
+    <name>adp-One</name>
+    <guid>45fa141f-4d97-45a1-8f65-90c22405577d</guid>
+    <version>1.0.0</version>
+    <date>2016-08-09</date>
+    <description><![CDATA[First official ADP for Design6]]></description>
+    <company>Askia SAS</company>
+    <author><![CDATA[Paul Nevin <paul@askia.com>]]></author>
+    <site>http://wwww.askia.com</site>
+    <helpURL>http://support.askia.com</helpURL>
+  </info>
+  <outputs defaultOutput="default">
+    <output id="default" masterPage="default.html">
+      <description><![CDATA[Default output]]></description>
+      <content fileName="normalize.min.css" type="css" mode="static" position="head" />
+      <content fileName="static.min.css" type="css" mode="static" position="head" />
+      <content fileName="dynamic.css" type="css" mode="dynamic" position="head" />
+      <content fileName="logo.svg" type="image" mode="static" position="none" />
+      <content fileName="bg.jpg" type="image" mode="static" position="none" />
+    </output>
+  </outputs>
+  <properties>
+    <category id="general" name="General">
+      <property xsi:type="standardProperty" id="window_title" name="Window title" type="string" require="true">
+        <description><![CDATA[Title of the window]]></description>
+        <value><![CDATA[Design One - Askia - Software for surveys{{}}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="body_bg" name="Body background image" type="file" require="true">
+        <description><![CDATA[Body background]]></description>
+        <value><![CDATA[{%= currentADC.UrlTo("bg.jpg")%}]]></value>
+      </property>
+    </category>
+    <category id="header" name="Header">
+      <property xsi:type="standardProperty" id="page_title" name="Page title" type="string">
+        <description><![CDATA[Title of the page]]></description>
+        <value><![CDATA[Askia Web Survey]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="logo_src" name="Logo" type="file" fileExtension=".png,.gif,.jpg,.jpeg">
+        <description><![CDATA[Image file of the logo]]></description>
+        <value><![CDATA[{%= currentADC.UrlTo("static/logo.svg")%}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="logo_alt" name="Left logo alt" type="string">
+        <description><![CDATA[Alternative text to display on the left logo]]></description>
+        <value><![CDATA[Askia - software for surveys]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="header_bg" name="Header background" type="color" require="true" colorFormat="rgba">
+        <description><![CDATA[Header background color]]></description>
+        <value><![CDATA[50, 50, 50, 1]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="header_font_color" name="Header foreground" type="color" require="true" colorFormat="rgba">
+        <description><![CDATA[Header font color]]></description>
+        <value><![CDATA[250, 250, 250, 1]]></value>
+      </property>
+    </category>
+    <category id="main_content" name="Main">
+      <property xsi:type="standardProperty" id="main_content_width" name="Main content width" type="string" require="true" pattern="(\d+)(%|px)">
+        <description><![CDATA[Width of the main content]]></description>
+        <value><![CDATA[60%]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="main_content_width_larger" name="Main content width larger" type="string" require="true" pattern="(\d+)(%|px)">
+        <description><![CDATA[Width of the larger main content]]></description>
+        <value><![CDATA[80%]]></value>
+      </property>
+    </category>
+    <category id="submit" name="Submit buttons">
+      <property xsi:type="standardProperty" id="submit_font_size" name="Font size" type="string" require="true">
+        <description><![CDATA[Font size of the submit buttons]]></description>
+        <value><![CDATA[{%= Theme.Var("font_size_response")%}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="display_previous" name="Display previous" type="boolean" require="true">
+        <description><![CDATA[Display previous button]]></description>
+        <value><![CDATA[false]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="previous_text" name="Previous text" type="string" require="true">
+        <description><![CDATA[Text of the previous button]]></description>
+        <value><![CDATA[<< Back]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="previous_font_color" name="Previous font color" type="color" require="true" colorFormat="rgba">
+        <description><![CDATA[Font color of the previous button]]></description>
+        <value><![CDATA[{%= Theme.Var("body_color") %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="previous_font_color_hover" name="Previous font color hover" type="color" require="true" colorFormat="rgba">
+        <description><![CDATA[Font color of the previous button on hover]]></description>
+        <value><![CDATA[{%= Theme.Var("color_neutral_dark") %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="next_text" name="Next text" type="string" require="true">
+        <description><![CDATA[Text of the next button]]></description>
+        <value><![CDATA[Validate]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="next_bg" name="Next background" type="color" require="true" colorFormat="rgba">
+        <description><![CDATA[Background color of the next button]]></description>
+        <value><![CDATA[{%= Theme.Var("color_primary") %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="next_bg_hover" name="Next background hover" type="color" require="true" colorFormat="rgba">
+        <description><![CDATA[Background color of the next button on hover]]></description>
+        <value><![CDATA[{%= Theme.Var("color_primary_light") %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="next_border_color" name="Next border color" type="color" require="true" colorFormat="rgba">
+        <description><![CDATA[Border color of the next button]]></description>
+        <value><![CDATA[{%= Theme.Var("color_primary_dark") %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="next_font_color" name="Next font color" type="color" require="true" colorFormat="rgba">
+        <description><![CDATA[Font color of the next button]]></description>
+        <value><![CDATA[{%= Theme.Var("color_neutral") %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="next_font_color_hover" name="Next font color hover" type="color" require="true" colorFormat="rgba">
+        <description><![CDATA[Font color of the next button on hover]]></description>
+        <value><![CDATA[{%= Theme.Var("color_neutral_light") %}]]></value>
+      </property>
+    </category>
+    <category id="footer" name="Footer">
+      <property xsi:type="standardProperty" id="footer_text" name="Left text" type="string">
+        <description><![CDATA[Left text in the footer]]></description>
+        <value><![CDATA[Powered by Askia]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="footer_font_color" name="Font color" type="color" require="true" colorFormat="rgba">
+        <description><![CDATA[Font color of the footer]]></description>
+        <value><![CDATA[{%= Theme.Var("color_neutral_dark")%}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="footer_font_size" name="Font size" type="string" require="true">
+        <description><![CDATA[Font size of the footer]]></description>
+        <value><![CDATA[{%= Theme.Var("font_size_small")%}]]></value>
+      </property>
+    </category>
+  </properties>
+</page>
