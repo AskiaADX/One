@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fixture xmlns="http://www.askia.com/2.1.0/ADXUnitTestSchema"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.askia.com/2.1.0/ADXUnitTestSchema ../../../../../../ADXUtil/schema/2.1.0/ADXUnitTests.xsd">
+    <arrange>
+        <Survey Name="TestSurvey" CurrentQuestion="chapter" Version="1.0" Full="1" MaxQuestionID="4" MaxResponseID="7">
+            <Languages>
+                <Language ID="2057" Abbr="ENG" Name="English (United Kingdom)" Default="1" />
+            </Languages>
+            <Questions>
+                <Question ID="5" Shortcut="chapter" Order="5" ElementType="chapter" >
+                    <LongCaption>Long caption of  a chapter question</LongCaption>
+                </Question>
+            </Questions>
+            <ScreenGroups/>
+            <Resources />
+            <InternetOptions />
+        </Survey>
+    </arrange>
+</fixture>
+

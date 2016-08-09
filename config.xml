@@ -19,7 +19,7 @@
     <output id="default" masterPage="default.html">
       <description><![CDATA[Default output]]></description>
       <content fileName="normalize.min.css" type="css" mode="static" position="head" />
-      <content fileName="static.min.css" type="css" mode="static" position="head" />
+      <content fileName="static.css" type="css" mode="static" position="head" />
       <content fileName="dynamic.css" type="css" mode="dynamic" position="head" />
       <content fileName="logo.svg" type="image" mode="static" position="none" />
       <content fileName="bg.jpg" type="image" mode="static" position="none" />
@@ -33,7 +33,7 @@
       </property>
       <property xsi:type="standardProperty" id="body_bg" name="Body background image" type="file" require="true">
         <description><![CDATA[Body background]]></description>
-        <value><![CDATA[{%= currentADC.UrlTo("bg.jpg")%}]]></value>
+        <value><![CDATA[{%= currentADP.UrlTo("static/bg.jpg")%}]]></value>
       </property>
     </category>
     <category id="header" name="Header">
@@ -43,7 +43,7 @@
       </property>
       <property xsi:type="standardProperty" id="logo_src" name="Logo" type="file" fileExtension=".png,.gif,.jpg,.jpeg">
         <description><![CDATA[Image file of the logo]]></description>
-        <value><![CDATA[{%= currentADC.UrlTo("static/logo.svg")%}]]></value>
+        <value><![CDATA[{%= currentADP.UrlTo("static/logo.svg")%}]]></value>
       </property>
       <property xsi:type="standardProperty" id="logo_alt" name="Left logo alt" type="string">
         <description><![CDATA[Alternative text to display on the left logo]]></description>

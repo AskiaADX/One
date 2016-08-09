@@ -89,7 +89,7 @@ header {
 }
 
 /* QUESTION */
-form.question {
+form {
     -webkit-box-ordinal-group: 3;
     -moz-box-ordinal-group: 3;
     -webkit-order: 2;

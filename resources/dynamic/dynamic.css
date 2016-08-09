@@ -33,7 +33,7 @@ src:url("../static/fonts/1473571/86f1717d-6131-4d33-890c-a13f87614fdd.eot?#iefix
 /* BG IMAGE, DEFAULT COLOR, FONT STACK & ROOT FONT SIZE  */
 
 html {
-    background: url('{%= currentADC.propValue("body_bg")%}') no-repeat center center fixed;
+    background: url('{%= currentADP.propValue("body_bg")%}') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

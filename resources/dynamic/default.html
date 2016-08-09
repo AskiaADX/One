@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Askia - software for surveys">
-    <title>{%= currentADC.propValue("window_title")%}</title>
+    <title>{%= currentADP.propValue("window_title")%}</title>
     <askia-head />
     <!-- TODO All favicons -->
     <!-- TODO ADD -> All social media metadata -->
@@ -14,12 +14,12 @@
 <body class="AdpWrapper">
     <header>
         <div id="headerContent">
-            {%if currentADC.propValue("page_title") <> "" then%}
-            <p class="surveyTitle">{%= currentADC.propValue("page_title")%}</p>
-            {%end if%}
-            {%if currentADC.propValue("logo_src") <> "" then%}
-            <img src="{%= currentADC.propValue("logo_src")%}" alt="{%= currentADC.propValue("logo_alt")%}" />
-            {%end if%}
+            {% if currentADP.propValue("page_title") <> "" then %}
+            <p class="surveyTitle">{%= currentADP.propValue("page_title") %}</p>
+            {% end if %}
+            {% if currentADP.propValue("logo_src") <> "" then %}
+            <img src="{%= currentADP.propValue("logo_src")%}" alt="{%= currentADP.propValue("logo_alt")%}" />
+            {% end if %}
         </div>
     </header>
     <!--- ASKIA FORM BEGINS HERE --->
