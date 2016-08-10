@@ -100,6 +100,7 @@ form {
     width: 60vw;
     margin: 2em auto;
     padding: 1em;
+    font-size: 1.25rem;
 }
 
 /* MAIN FORM WRAPPER: SET FORM WIDTH WHEN VIEWPORT < 970PX */
@@ -157,7 +158,7 @@ form {
 */
 
 .navigation > button {
-    font-family:"MaxWeb W03 Bold";
+    font-family:"MaxWeb W03 Bold", sans-serif;
     border-radius: .2em;
     padding: .2em 1.5em;
     line-height: 1.85em;

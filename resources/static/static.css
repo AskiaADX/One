@@ -198,3 +198,9 @@ progress {
     -moz-appearance: none;
     appearance: none;
 }
+
+/* HACK DEFAULT LABEL PADDING */
+
+.askia-question-label {
+	padding: 2em 0;
+}
