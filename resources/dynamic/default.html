@@ -1,59 +1,121 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Askia - software for surveys">
-    <title>{%= currentADP.propValue("window_title")%}</title>
-    <askia-head />
-    <!-- TODO All favicons -->
-    <!-- TODO ADD -> All social media metadata -->
-</head>
-
-<body class="AdpWrapper">
-    <header>
-        <div id="headerContent">
-            {% if currentADP.propValue("page_title") <> "" then %}
-            <p class="surveyTitle">{%= currentADP.propValue("page_title") %}</p>
-            {% end if %}
-            {% if currentADP.propValue("logo_src") <> "" then %}
-            <img src="{%= currentADP.propValue("logo_src")%}" alt="{%= currentADP.propValue("logo_alt")%}" />
-            {% end if %}
-        </div>
-    </header>
-    <!--- ASKIA FORM BEGINS HERE --->
-    <askia-form>
-        <div class="caption">
-            {% If CurrentQuestions.Errors.Count Then %}
-            <div class="askia-errors-summary">
-                <p>This page contains one or several errors</p>
-                <ul>
-                    {% Dim errorIndex = 1
-                    For errorIndex = 1 To CurrentQuestions.Errors.Count %}
-                    <li>{%= CurrentQuestions.Errors[errorIndex].Message %}</li>
-                    {% Next %}
-                </ul>
-            </div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{%= CurrentADP.Var("window_title") %}</title>
+        <meta charset="utf-8" content="text/html" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Askia - software for surveys">
+        <meta name="theme-color" content="#DF4335">
+        <link rel="icon" href="{%:= CurrentADP.URLTo("static/favicon.png") %}">
+        <!--- ASKIA HEAD HERE -->
+        <askia-head />
+    </head>
+    <body>
+        <header id="nav" class="large">
+            {%
+			Dim attrDisabled = On(Interview.IsFirstPage, "disabled=\"disabled\"", "")
+			Dim classDisabled = On(Interview.IsFirstPage, "disabled", "")
+			Dim SurveyName = CurrentADP.Var("survey_name")
+			Dim SurveyLogoSrc = CurrentADP.Var("survey_logo_src")
+			Dim SurveyLogoAlt = CurrentADP.Var("survey_logo_alt")
+			Dim errors_caption = CurrentADP.Var("errors_caption")
+			If (SurveyLogoSrc <> "") Then  %}
+            <div class="logo-survey"><img src="{%= SurveyLogoSrc %}" alt="{%= SurveyLogoAlt %}" /></div>
             {% End If %}
+            {% If (SurveyLogoSrc = "") and (SurveyName = "") Then  %}
+            <div class="logo-survey"><img src="{%:= CurrentADP.URLTo("static/logo-askia-rvb.png") %}" alt="Askia logo" /></div>
+            {% End If %}
+            {% If (SurveyLogoSrc = "") and (SurveyName <> "") Then  %}
+            <h2>{%= SurveyName %}</h2>
+            {% End If %}
+            <div class="progressWrapper">
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                    {% If CurrentADP.Var("display_progress_value") = "yes" Then %}
+                    <div class="progress-value">{%= Interview.Progress.ToInt() %}%</div>
+                    {% EndIf %}
+                </div>
+            </div>
+        </header>
+        <div class="main">
+            <!--- ASKIA FORM BEGINS HERE -->
+            <askia-form>
+                <div class="question">
+                    {% If CurrentQuestions.Errors.Count Then %}
+                    <div class="askia-errors-summary">
+                        {% If (errors_caption <> "") Then  %}
+                        <p>{%:= errors_caption %}</p>
+                        {% End If %}
+                        <ul>
+                            {% Dim errorIndex = 1
+For errorIndex = 1 To CurrentQuestions.Errors.Count %}
+                            <li>{%= CurrentQuestions.Errors[errorIndex].Message %}</li>
+                            {% Next %}
+                        </ul>
+                    </div>
+                    {% End If %}
+                    <!--- ASKIA QUESTIONS HERE -->
+                    <askia-questions />
+                    <div class="navigation">
+                        {% If CurrentADP.Var("display_previous") = True Then %}
+                        <input type="submit" name="Previous" class="btn secondary keyframe {%:= classDisabled %}" value="{%= CurrentADP.Var("previous_caption") %}" {%:= attrDisabled %} />
+                        {% End If %}
+                        <input type="submit" name="Next" class="btn primary keyframe" value="{%= CurrentADP.Var("next_caption") %}" />
+                    </div>
+                </div>
+            </askia-form>
+            <!--- ASKIA FORM ENDS HERE -->
         </div>
-        <askia-questions />
-        <div class="navigation">
-            {% If CurrentADP.Var("display_previous") = True Then %}
-            <button type="submit" class="previous" title="Go back to the previous question">Back</button>
-            {%end if%}
-            <button type="submit" class="next" title="Go to the next question">Next</button>
-        </div>
-    </askia-form>
-    <!--- ASKIA FORM ENDS HERE --->
-    <footer>
-        <div class="footerText">
-            <p>{%= CurrentADP.Var("footer_text") %}</p>
-        </div>
-        <div class="progressbar">
-            <progress max="100" value="{%= Interview.Progress%}"></progress>
-        </div>
-    </footer>
-</body>
+        <footer>
+            <div class="footerLeft">{%:= CurrentADP.Var("footer_left") %}</div>
+            <div class="footerRight">{%:= CurrentADP.Var("footer_right") %}</div>
+        </footer>
+        <!--- ASKIA FOOT HERE -->
+        <askia-foot />
+        <script>
+            var fixed = false,
+                nav = document.getElementById('nav'),
+                position = nav.offsetTop;
 
+            /**
+           * Add class in DOMElement
+           *
+           * @param {HTMLElement} obj HTMLElement where the class should be added
+           * @param {String} clsName Name of the class to add
+           */
+            function addClass(obj, clsName) {
+                if (obj.classList)
+                    obj.classList.add(clsName);
+                else
+                    obj.className += ' ' + clsName;
+            }
+
+            /**
+           * Remove class in DOMElement
+           *
+           * @param {HTMLElement} obj HTMLElement where the class should be removed
+           * @param {String} clsName Name of the class to remove
+           */
+            function removeClass(obj, clsName) {
+                if (obj.classList)
+                    obj.classList.remove(clsName);
+                else
+                    obj.className = obj.className.replace(new RegExp('(^|\\b)' + clsName.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+            }
+
+            function Matter() {
+                if ('{%= CurrentADP.Var("sticky_header") %}' !== 'yes') return;
+                    var scrollY = window.scrollY || window.pageYOffset;
+                    if (scrollY > position && !fixed && !nav.className.match(new RegExp('(\\s|^)'+'fixed'+'(\\s|$)'))) {
+                    fixed = true;
+                    addClass(nav,'fixed')
+                } else if (scrollY <= position && fixed && !!nav.className.match(new RegExp('(\\s|^)'+'fixed'+'(\\s|$)'))) {
+                    fixed = false;
+                    removeClass(nav,'fixed')
+                }
+            }
+
+            window.onscroll = Matter;
+        </script>
+    </body>
 </html>
