@@ -1,15 +1,17 @@
 {%
 'Theme
-Dim BodyBgColor = Theme.BodyBgColor
-Dim BodyFontColor = Theme.BodyFontColor
+Dim WhiteColor = Theme.WhiteColor
+Dim BlackColor = Theme.BlackColor
 Dim PrimaryColor = Theme.PrimaryColor
 Dim PrimaryLightColor = Theme.PrimaryLightColor
 Dim SecondaryColor = Theme.SecondaryColor
 Dim SecondaryDarkColor = Theme.SecondaryDarkColor
 Dim FontFamily = Theme.FontFamily
 Dim BaseFS = Theme.BaseFS
-Dim QuestionFS = Theme.QuestionFS
-Dim ResponseFS = Theme.ResponseFS
+Dim LargeFS = Theme.LargeFS
+Dim NormalFS = Theme.NormalFS
+Dim SmallFS = Theme.SmallFS
+Dim LineHeight = Theme.LineHeight
 Dim NeutralColor = Theme.NeutralColor
 Dim NeutralDarkColor = Theme.NeutralDarkColor
 Dim NeutralLightColor = Theme.NeutralLightColor
@@ -18,7 +20,6 @@ Dim BorderWidth = Theme.BorderWidth
 Dim BorderRadius = Theme.BorderRadius
 Dim VPadding = Theme.VPadding
 Dim HPadding = Theme.HPadding
-Dim SmallFS = Theme.SmallFS
 Dim buttons_alignement = CurrentADP.Var("buttons_alignement")
 Dim radio_checkbox_size = CurrentADP.Var("radio_checkbox_size")
 Dim bgimageadp = CurrentADP.Var("background_image_src")
@@ -26,11 +27,11 @@ Dim bgimage = CurrentADP.URLTo("static/bg.jpg").ToString()
 %}
 
 ::selection {
-    color: rgba({%= BodyBgColor %});
+    color: rgba({%= WhiteColor %});
     background-color: rgba({%= PrimaryColor %});
 }
 ::-moz-selection {
-    color: rgba({%= BodyBgColor %});
+    color: rgba({%= WhiteColor %});
     background-color: rgba({%= PrimaryColor %});
 }
 html {
@@ -61,17 +62,26 @@ body, html {
 }
 header h2 {
     font-family: {%= FontFamily %};
+    font-size: {%= LargeFS %};
     padding: 0 0 0 {%= HPadding %};
 }
+@media screen and (max-width: 500px) {
+  header h2 {
+    padding: 0 0 0 0.2em;
+  }
+}
 body, html {
-    color: rgba({%= BodyFontColor %});
+    color: rgba({%= BlackColor %});
+}
+body {
+    line-height: {%= LineHeight %};
 }
 
 .question, footer {
-    background-color: rgba({%= BodyBgColor.ToRGB() %},0.3);
+    background-color: rgba({%= WhiteColor.ToRGB() %},0.3);
 }
 footer {   
-    border-top: {%= BorderWidth %} solid rgba({%= BodyBgColor.ToRGB() %},0.3);
+    border-top: {%= BorderWidth %} solid rgba({%= WhiteColor.ToRGB() %},0.3);
 }
 {% If CurrentADP.Var("display_footer") = "no" Then %}
 footer {
@@ -79,17 +89,17 @@ footer {
 }
 {% EndIf %}
 header.large, .question, input[type=text], input[type=number], textarea {
-    color: rgba({%= BodyFontColor %});
+    color: rgba({%= BlackColor %});
 }
 input[type=text], input[type=number], textarea {
-    background-color: rgba({%= BodyBgColor.ToRGB() %},0.4);
+    background-color: rgba({%= WhiteColor.ToRGB() %},0.4);
 }
 
 header.fixed .progressWrapper {
     padding: 1.65em {%= HPadding %} 0 0;
 }
 header.fixed {
-    background-color: rgba({%= BodyBgColor.ToRGB() %},1.0);
+    background-color: rgba({%= WhiteColor.ToRGB() %},1.0);
 }
 
 .progressWrapper {
@@ -139,11 +149,11 @@ header.fixed {
 }
 
 .askia-question-label {
-    font-size: {%= QuestionFS %};
+    font-size: {%= NormalFS %};
     padding: {%= VPadding %} 0;
 }
 .askia-control .askia-question-label {
-    font-size: {%= QuestionFS %};
+    font-size: {%= NormalFS %};
     padding: 0;
 }
 .askia-grid-row:nth-child(even) td {
@@ -157,7 +167,7 @@ header.fixed {
 }
 
 .askia-grid-row .askia-question-label {
-    font-size: {%= ResponseFS %};
+    font-size: {%= NormalFS %};
     padding-left: 0.5em;
 }
 
@@ -178,13 +188,15 @@ input[type=checkbox]:checked~label, input[type=radio]:checked~label, input[type=
 }
 
 .askia-caption {
-    font-size: {%= QuestionFS %};
+    font-size: {%= NormalFS %};
 }
 .askia-response {
-    font-size: {%= ResponseFS %};
+    font-size: {%= NormalFS %};
     padding: 5px;
 }
 .btn {
+    font-family: {%= FontFamily %};
+    font-size: {%= NormalFS %};
     border-radius: {%= BorderRadius %};
     padding: {%= VPadding %} 0;
 }
@@ -195,7 +207,7 @@ input[type=checkbox], input[type=radio] {
     vertical-align: middle;
 }
 input[type=text], input[type=number], textarea {
-    font-size: {%= ResponseFS %};
+    font-size: {%= NormalFS %};
     border: {%= BorderWidth %} solid rgba({%= NeutralColor %});
     padding: {%= VPadding %} {%= HPadding %};
 }
@@ -213,12 +225,12 @@ input[type=text]:hover, input[type=number]:hover, textarea:hover {
 
 .primary {
     background-color: rgba({%= SecondaryColor %});
-    color: #fff;
+    color: rgba({%= WhiteColor.ToRGBA() %});
 }
 
 .primary:hover {
     background-color: rgba({%= SecondaryDarkColor %});
-    color: #fff;
+    color: rgba({%= WhiteColor.ToRGBA() %});
 }
 
 .secondary {
@@ -230,18 +242,18 @@ input[type=text]:hover, input[type=number]:hover, textarea:hover {
     background-color: rgba({%= NeutralColor %});
     color: rgba({%= PrimaryLightColor %});
 }
-footer a {
-    color: rgba({%= BodyFontColor %});
-    transition: color linear .3s;
-}
 .footerLeft {
     padding: 0 0 0 {%= HPadding %};
-    color: rgba({%= BodyFontColor %});
+    color: rgba({%= BlackColor %});
     font-size: {%= SmallFS %};
 }
 
 .footerRight {
     padding: 0 {%= HPadding %} 0 0;
-    color: rgba({%= BodyFontColor %});
+    color: rgba({%= BlackColor %});
     font-size: {%= SmallFS %};
+}
+footer a {
+    color: rgba({%= BlackColor %});
+    transition: color linear .3s;
 }
