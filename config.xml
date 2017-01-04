@@ -67,7 +67,7 @@
       </property>
       <property xsi:type="standardProperty" id="radio_checkbox_size" name="Radio Checkbox size" type="string" mode="dynamic" require="true" visible="true">
         <description><![CDATA[Radio Checkbox size]]></description>
-        <value><![CDATA[20px]]></value>
+        <value><![CDATA[1.6rem]]></value>
       </property>
       <property xsi:type="standardProperty" id="background_image_src" name="Background image src" type="string" mode="dynamic" require="false" visible="true">
         <description><![CDATA[Background image src]]></description>
