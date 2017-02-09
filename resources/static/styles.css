@@ -225,6 +225,7 @@ input[type=checkbox] + label.askia-checkbox {
     border-radius: .125em;
     box-sizing: border-box;
     position: relative;
+    opacity: 0.9;
     cursor: pointer;
     animation: checkbox-1 .6s;
     transition: transform .3s cubic-bezier(.2, .3, 0, 1), box-shadow .3s cubic-bezier(.2, .3, 0, 1), border-color 0s linear .17s;
@@ -243,6 +244,7 @@ input[type=radio] + label.askia-radio, input[type=checkbox].askia-exclusive + la
     border-radius: 50%;
     box-sizing: border-box;
     position: relative;
+    opacity: 0.9;
     cursor: pointer;
     animation: checkbox-1 .6s;
     transition: transform .3s cubic-bezier(.2, .3, 0, 1), box-shadow .3s cubic-bezier(.2, .3, 0, 1), border-color 0s linear .17s;
