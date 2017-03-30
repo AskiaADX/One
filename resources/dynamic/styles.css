@@ -194,6 +194,10 @@ header.fixed {
     font-size: {%= NormalFS %};
     padding: 5px;
 }
+.askia-response:hover {
+    background-color : rgba({%= BlackColor.ToRGB() %}, .1);
+    cursor: pointer;
+}
 .btn {
     font-family: {%= FontFamily %};
     font-size: {%= NormalFS %};
