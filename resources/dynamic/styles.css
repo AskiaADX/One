@@ -166,7 +166,7 @@ header.fixed {
     border-bottom: {%= BorderWidth %} solid rgba({%= NeutralDarkColor.ToRGB() %},1.0);
 }
 .askia-grid-row:hover td {
-    background-color: rgba({%= NeutralColor.ToRGB() %},0.4);
+    background-color: rgba({%= BlackColor.ToRGB() %},0.1);
 }
 
 .askia-grid-row .askia-question-label {
@@ -197,6 +197,9 @@ header.fixed {
 .askia-response:hover {
     background-color : rgba({%= BlackColor.ToRGB() %}, .1);
     cursor: pointer;
+}
+.askia-grid-header .askia-response:hover {
+    background-color : transparent; 
 }
 .btn {
     font-family: {%= FontFamily %};
