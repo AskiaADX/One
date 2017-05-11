@@ -5,7 +5,7 @@
           version="2.1.0"
           askiaCompat="5.4.2">
   <info>
-    <name>adp-One</name>
+    <name>One</name>
     <guid>45fa141f-4d97-45a1-8f65-90c22405577d</guid>
     <version>1.0.0</version>
     <date>2016-12-06</date>
@@ -35,20 +35,20 @@
         <description><![CDATA[Title of the window]]></description>
         <value><![CDATA[Askia Web Survey]]></value>
       </property>
-      <property xsi:type="standardProperty" id="survey_logo_src" name="Survey Logo Src" type="string" require="false" visible="true">
+      <property xsi:type="standardProperty" id="survey_logo_src" name="Logo path" type="string" require="false" visible="true">
         <description><![CDATA[The logo of the survey which will be display next to the survey name]]></description>
         <value></value>
       </property>
-      <property xsi:type="standardProperty" id="survey_logo_alt" name="Survey Logo Alt" type="string" require="false" visible="true">
-        <description><![CDATA[The alt of the survey logo]]></description>
+      <property xsi:type="standardProperty" id="survey_logo_alt" name="Logo alternate text" type="string" require="false" visible="true">
+        <description><![CDATA[The alternate text of the logo]]></description>
         <value></value>
       </property>
-      <property xsi:type="standardProperty" id="survey_name" name="Survey Name" type="string" require="false" visible="true">
-        <description><![CDATA[the name of the survey]]></description>
+      <property xsi:type="standardProperty" id="survey_name" name="Survey name" type="string" require="false" visible="true">
+        <description><![CDATA[The name of the survey]]></description>
         <value></value>
       </property>
-      <property xsi:type="standardProperty" id="errors_caption" name="Errors caption" type="string" mode="dynamic" require="false" visible="true">
-        <description><![CDATA[Errors caption]]></description>
+      <property xsi:type="standardProperty" id="errors_caption" name="Error caption" type="string" mode="dynamic" require="false" visible="true">
+        <description><![CDATA[Error caption]]></description>
         <value></value>
       </property>
       <property xsi:type="standardProperty" id="display_progress_value" name="Display progress value" type="string" mode="dynamic" require="true" visible="true">
@@ -67,17 +67,17 @@
           <option value="no" text="No" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="radio_checkbox_size" name="Radio Checkbox size" type="string" mode="dynamic" require="true" visible="true">
-        <description><![CDATA[Radio Checkbox size]]></description>
+      <property xsi:type="standardProperty" id="radio_checkbox_size" name="Radio and checkbox size" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Radio and checkbox size]]></description>
         <value><![CDATA[1.5rem]]></value>
       </property>
-      <property xsi:type="standardProperty" id="background_image_src" name="Background image src" type="string" mode="dynamic" require="false" visible="true">
-        <description><![CDATA[Background image src]]></description>
+      <property xsi:type="standardProperty" id="background_image_src" name="Background image path" type="string" mode="dynamic" require="false" visible="true">
+        <description><![CDATA[Background image path]]></description>
         <value></value>
       </property>
     </category>
     <category id="buttons" name="Buttons">
-      <property xsi:type="standardProperty" id="buttons_alignement" name="Buttons alignement" type="string" mode="dynamic" require="true" visible="true">
+      <property xsi:type="standardProperty" id="buttons_alignement" name="Alignment" type="string" mode="dynamic" require="true" visible="true">
         <description><![CDATA[Buttons alignement]]></description>
         <value><![CDATA[center]]></value>
         <options>
