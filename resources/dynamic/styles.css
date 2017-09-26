@@ -27,11 +27,11 @@ Dim bgimage = CurrentADP.URLTo("static/bg.jpg").ToString()
 %}
 
 ::selection {
-    color: rgba({%= WhiteColor %});
+    color: rgba({%= NeutralLightColor %});
     background-color: rgba({%= PrimaryColor %});
 }
 ::-moz-selection {
-    color: rgba({%= WhiteColor %});
+    color: rgba({%= NeutralLightColor %});
     background-color: rgba({%= PrimaryColor %});
 }
 html {
@@ -122,7 +122,7 @@ header.fixed {
 }
 
 .progress {
-    background-color: rgba({%= NeutralLightColor.ToRGB() %},0.8);
+    background-color: rgba({%= BlackColor.ToRGB() %},0.1);
     border-radius: {%= BorderRadius %};
 }
 
