@@ -86,6 +86,11 @@ body {
 footer {   
     border-top: {%= BorderWidth %} solid rgba({%= WhiteColor.ToRGB() %},0.3);
 }
+{% If CurrentADP.Var("display_next") = "no" Then %}
+input[name="Next"] {
+    display: none;
+}
+{% EndIf %}
 {% If CurrentADP.Var("display_footer") = "no" Then %}
 footer {
     display: none;
