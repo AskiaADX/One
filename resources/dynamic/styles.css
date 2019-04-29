@@ -172,6 +172,22 @@ header.fixed {
 .askia-grid-row td, .askia-grid-header td {
     border-bottom: {%= BorderWidth %} solid rgba({%= NeutralDarkColor.ToRGB() %},1.0);
 }
+
+.askia-radio, .askia-checkbox {
+   float: left;
+}
+
+.askia-grid-row > td >.askia-radio, .askia-grid-row > td > .askia-checkbox, .askiarow > td >.askia-radio, .askiarow > td > .askia-checkbox {
+  float: none;
+}
+
+.askia-radio + .askia-response-label, .askia-checkbox + .askia-response-label {
+    display: block;
+    margin-left: {%= radio_checkbox_size %} !important;
+    padding-left: 10px;
+    vertical-align: text-top;
+}
+
 {% If (Browser.Mobile = false) Then %}
 .askia-grid-row:hover td {
     background-color: rgba({%= BlackColor.ToRGB() %},0.1);
