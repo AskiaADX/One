@@ -7,8 +7,8 @@
   <info>
     <name>One</name>
     <guid>45fa141f-4d97-45a1-8f65-90c22405577d</guid>
-    <version>3.0.3</version>
-    <date>2016-12-06</date>
+    <version>3.0.4</version>
+    <date>2020-12-08</date>
     <description><![CDATA[v1.0.6 Modified dynamic/style.css for HTML5 compatibility.
                     Added properties for additional HTML in Head and Foot sections
                     Strip HTML from longcaptions in error messages
@@ -16,7 +16,9 @@
 			v2.0.0 - Added window.location.search
 			v2.0.1 - Added indentation for long labels
 			v3.0.0 - ADPScehema 2.2.0
-			v3.0.3 - fixed live routing]]></description>
+			v3.0.3 - fixed live routing
+      v3.0.4 - change html.lang attribute
+      ]]></description>
     <company>askia</company>
     <author><![CDATA[Jerome Duparc <jeromed@askia.com> Paul McDuffee Nevin<paul@askia.com>]]></author>
     <site>https://www.askia.com/</site>
