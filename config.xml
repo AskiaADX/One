@@ -7,8 +7,8 @@
   <info>
     <name>One</name>
     <guid>45fa141f-4d97-45a1-8f65-90c22405577d</guid>
-    <version>3.0.4</version>
-    <date>2020-12-08</date>
+    <version>3.0.5</version>
+    <date>2021-05-05</date>
     <description><![CDATA[v1.0.6 Modified dynamic/style.css for HTML5 compatibility.
                     Added properties for additional HTML in Head and Foot sections
                     Strip HTML from longcaptions in error messages
@@ -18,6 +18,7 @@
 			v3.0.0 - ADPScehema 2.2.0
 			v3.0.3 - fixed live routing
       v3.0.4 - change html.lang attribute
+      v3.0.5 - double exclamation marks bug fixed
       ]]></description>
     <company>askia</company>
     <author><![CDATA[Jerome Duparc <jeromed@askia.com> Paul McDuffee Nevin<paul@askia.com>]]></author>
