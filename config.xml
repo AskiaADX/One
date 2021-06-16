@@ -20,6 +20,7 @@
       v3.0.4 - change html.lang attribute
       v3.0.5 - double exclamation marks bug fixed
       v3.0.6 - tabIndex management
+      v3.1.0 - SetValue ajax
       ]]></description>
     <company>askia</company>
     <author><![CDATA[Jerome Duparc <jeromed@askia.com> Paul McDuffee Nevin<paul@askia.com>]]></author>
