@@ -76,6 +76,11 @@
                         {% If CurrentADP.Var("display_previous") = "yes" Then %}
                         <input type="submit" name="Previous" class="btn secondary keyframe {%:= classDisabled %}" value="{%= CurrentADP.Var("previous_caption") %}" {%:= attrDisabled %} role="button" />
                         {% End If %}
+
+                        {% If CurrentADP.Var("display_pause") = "yes" Then %}
+                        <input type="submit" title="Pause" value="{%= CurrentADP.Var("pause_caption") %}" name="Pause" class="btn pause keyframe" role="button" tabindex="0" />
+                        {% End If %}
+                        
                         <input type="submit" name="Next" class="btn primary keyframe" value="{%= CurrentADP.Var("next_caption") %}" role="button" />
                     </div>
                 </div>

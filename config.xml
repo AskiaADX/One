@@ -7,8 +7,8 @@
   <info>
     <name>One</name>
     <guid>45fa141f-4d97-45a1-8f65-90c22405577d</guid>
-    <version>3.1.2</version>
-    <date>2021-09-08</date>
+    <version>3.2.0</version>
+    <date>2022-05-13</date>
     <description><![CDATA[v1.0.6 Modified dynamic/style.css for HTML5 compatibility.
                     Added properties for additional HTML in Head and Foot sections
                     Strip HTML from longcaptions in error messages
@@ -23,6 +23,7 @@
       v3.1.0 - SetValue ajax
       v3.1.1 -
       v3.1.2 - Fixed - live-routing issue
+      v3.2.0 - Additional html before/after questions
       ]]></description>
     <company>askia</company>
     <author><![CDATA[Jerome Duparc <jeromed@askia.com> Paul McDuffee Nevin<paul@askia.com>]]></author>
@@ -90,14 +91,6 @@
         <description><![CDATA[Background image path]]></description>
         <value></value>
       </property>
-      <property xsi:type="standardProperty" id="headHTML" name="Additional HTML for Head section" type="string" mode="dynamic" require="false" visible="true">
-        <description><![CDATA[Additional HTML for Head section]]></description>
-        <value></value>
-      </property>
-      <property xsi:type="standardProperty" id="footHTML" name="Additional HTML for Foot section" type="string" mode="dynamic" require="false" visible="true">
-        <description><![CDATA[Additional HTML for Foot section]]></description>
-        <value></value>
-      </property>
     </category>
     <category id="buttons" name="Buttons">
       <property xsi:type="standardProperty" id="buttons_alignement" name="Alignment" type="string" mode="dynamic" require="true" visible="true">
@@ -133,7 +126,30 @@
         <description><![CDATA[Next caption]]></description>
         <value><![CDATA[Next]]></value>
       </property>
+
+      <property xsi:type="standardProperty" id="display_pause" name="Display pause" type="string" require="true" visible="true">
+        <description><![CDATA[Display pause button]]></description>
+        <value><![CDATA[no]]></value>
+        <options>
+          <option value="yes" text="Yes" />
+          <option value="no" text="No" />
+        </options>
+      </property>
+      <property xsi:type="standardProperty" id="pause_caption" name="Pause caption" type="string" mode="dynamic" require="false" visible="true">
+        <description><![CDATA[Pause caption]]></description>
+        <value><![CDATA[Pause]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="pause_button_background_color" name="Pause button background color" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgba">
+        <description><![CDATA[The background color of the pause button]]></description>
+        <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
+      </property>
+      <property xsi:type="standardProperty" id="pause_button_foreground_color" name="Pause button foreground color" type="color" mode="dynamic" require="true" visible="false" colorFormat="rgba">
+        <description><![CDATA[The foreground color of the pause button]]></description>
+        <value><![CDATA[{%= Theme.BlackColor %}]]></value>
+      </property>
+
     </category>
+
     <category id="footer" name="Footer">
       <property xsi:type="standardProperty" id="display_footer" name="Display footer" type="string" mode="dynamic" require="true" visible="true">
         <description><![CDATA[Display footer]]></description>
@@ -152,5 +168,25 @@
         <value></value>
       </property>
     </category>
+
+    <category id="additionalHtml" name="Additional HTML">
+      <property xsi:type="standardProperty" id="before_questions" name="Additional HTML Before Questions" type="string" mode="dynamic" require="false" visible="true">
+        <description><![CDATA[HTML Before Questions]]></description>
+        <value></value>
+      </property>
+      <property xsi:type="standardProperty" id="after_questions" name="Additional HTML After Questions" type="string" mode="dynamic" require="false" visible="true">
+        <description><![CDATA[HTML After Questions]]></description>
+        <value></value>
+      </property>
+      <property xsi:type="standardProperty" id="headHTML" name="Additional HTML for Head section" type="string" mode="dynamic" require="false" visible="true">
+        <description><![CDATA[Additional HTML for Head section]]></description>
+        <value></value>
+      </property>
+      <property xsi:type="standardProperty" id="footHTML" name="Additional HTML for Foot section" type="string" mode="dynamic" require="false" visible="true">
+        <description><![CDATA[Additional HTML for Foot section]]></description>
+        <value></value>
+      </property>
+    </category>
+
   </properties>
 </page>
