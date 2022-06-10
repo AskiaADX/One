@@ -7,8 +7,8 @@
   <info>
     <name>One</name>
     <guid>45fa141f-4d97-45a1-8f65-90c22405577d</guid>
-    <version>3.2.0</version>
-    <date>2022-05-13</date>
+    <version>3.2.1</version>
+    <date>2022-06-10</date>
     <description><![CDATA[v1.0.6 Modified dynamic/style.css for HTML5 compatibility.
                     Added properties for additional HTML in Head and Foot sections
                     Strip HTML from longcaptions in error messages
@@ -24,6 +24,7 @@
       v3.1.1 -
       v3.1.2 - Fixed - live-routing issue
       v3.2.0 - Additional html before/after questions
+      v3.2.1 - Fixed - StickyHeader issue for responsiveTable adc
       ]]></description>
     <company>askia</company>
     <author><![CDATA[Jerome Duparc <jeromed@askia.com> Paul McDuffee Nevin<paul@askia.com>]]></author>
