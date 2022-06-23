@@ -36,7 +36,7 @@
             {% End If %}
             {% If (adpSurveyLogoSrc = "") and (adpSurveyName = "") Then  %}
             <div class="logo-survey">
-              <img src="{%:= CurrentADP.URLTo("static/logo-askia.svg") %}" alt="">              
+              <img src="{%:= CurrentADP.URLTo("static/logo-askia.svg") %}" alt="">
             </div>
             {% End If %}
             {% If (adpSurveyLogoSrc = "") and (adpSurveyName <> "") Then  %}
@@ -86,7 +86,7 @@
         <askia-foot />
         <script>
 
-        {% IF (CurrentQuestions.Errors.Count > 0) THEN
+        {% IF CurrentQuestions.Errors.Count THEN
           Import ErrorModule
           Dim errorUL
           errorUL = ErrorModule::getErrorUL(errors_caption.ToString())
