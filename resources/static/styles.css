@@ -160,7 +160,7 @@ header.fixed h2 {
   flex: 1 1 60vh;
   align-self: center;
   overflow-y: visible;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 /* QUESTION CAPTION */
