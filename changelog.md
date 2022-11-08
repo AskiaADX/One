@@ -18,3 +18,4 @@ v3.2.1 - Fixed - StickyHeader issue for responsiveTable adc
 v3.3.0 - Inject error module by an asx file
        - html/lang
        - use of logo-askia.svg file instead of inline svg
+v3.4.0 - 
