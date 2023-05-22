@@ -7,8 +7,8 @@
   <info>
     <name>One</name>
     <guid>45fa141f-4d97-45a1-8f65-90c22405577d</guid>
-    <version>3.4.0</version>
-    <date>2022-11-08</date>
+    <version>3.5.0</version>
+    <date>2023-05-22</date>
     <description><![CDATA[One Askia Design Page]]></description>
     <company>askia</company>
     <author><![CDATA[Jerome Duparc <jeromed@askia.com> Paul McDuffee Nevin<paul@askia.com>]]></author>
@@ -77,6 +77,14 @@
         <description><![CDATA[Background image path]]></description>
         <value></value>
       </property>
+      <property xsi:type="standardProperty" id="test_mode_enabled" name="Survey Testing Information" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Show/Hide Survey Testing Information]]></description>
+        <value><![CDATA[no]]></value>
+        <options>
+          <option value="yes" text="Show" />
+          <option value="no" text="Hide" />
+        </options>
+      </property>        
     </category>
     <category id="buttons" name="Buttons">
       <property xsi:type="standardProperty" id="buttons_alignement" name="Alignment" type="string" mode="dynamic" require="true" visible="true">
