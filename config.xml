@@ -7,8 +7,8 @@
   <info>
     <name>One</name>
     <guid>45fa141f-4d97-45a1-8f65-90c22405577d</guid>
-    <version>3.4.1</version>
-    <date>2023-05-22</date>
+    <version>3.5.0</version>
+    <date>2026-11-09</date>
     <description><![CDATA[One Askia Design Page]]></description>
     <company>askia</company>
     <author><![CDATA[Jerome Duparc <jeromed@askia.com> Paul McDuffee Nevin<paul@askia.com>]]></author>
@@ -28,11 +28,32 @@
       <content fileName="styles.css" type="css" mode="dynamic" position="head" />
       <content fileName="bg.jpg" type="image" mode="static" position="none" />
       <content fileName="askia.ajax.min.js" type="javascript" mode="static" position="foot" />
+      <content fileName="adp.debug.js" type="javascript" mode="static" position="none" />
       <content fileName="error.asx" type="asx" mode="modules" position="none" />
     </output>
   </outputs>
   <properties>
     <category id="general" name="General">
+      <property xsi:type="standardProperty" id="debug_mode" name="Debug Mode" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Enable debug tools.]]></description>
+        <value><![CDATA[false]]></value>
+        <options>
+          <option value="true" text="True" />
+          <option value="false" text="False" />
+        </options>
+      </property>
+      <property xsi:type="standardProperty" id="debug_auto_answer_submit" name="Auto Answer Submit" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Submit after auto-answer.]]></description>
+        <value><![CDATA[true]]></value>
+        <options>
+          <option value="true" text="True" />
+          <option value="false" text="False" />
+        </options>
+      </property>
+      <property xsi:type="standardProperty" id="debug_navigation_tag" name="Debug Navigation Tag" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Question tag used for Debug Mode navigation]]></description>
+        <value><![CDATA[Nav]]></value>
+      </property>
       <property xsi:type="standardProperty" id="window_title" name="Window title" type="string" require="true" visible="true">
         <description><![CDATA[Title of the window]]></description>
         <value><![CDATA[Askia Web Survey]]></value>

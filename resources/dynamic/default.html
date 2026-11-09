@@ -218,5 +218,133 @@
               if ((window.getComputedStyle(cp[i]).display != "none") & (window.getComputedStyle(cp[i]).visibility != "hidden")) cp[i].setAttribute("role", "heading");
             }   
         </script>
+        <!-- Debug Mode: Askia evaluates this entire section for each page. -->
+        {% If CurrentADP.Var("debug_mode").ToString().ToLowerCase() = "true" Then %}
+        <style>
+          #adp-debug-panel { position:fixed; left:0; top:0; bottom:0; width:280px; max-width:85vw; z-index:10001; background:#fff; color:#222; box-shadow:2px 0 12px rgba(0,0,0,.3); transform:translateX(-100%); transition:transform .3s; font:14px/1.5 Arial,sans-serif; }
+          #adp-debug-panel.is-open { transform:translateX(0); }
+          #adp-debug-toggle { position:absolute; left:100%; top:110px; padding:12px 8px; border:1px solid #555; background:#222; color:#fff; cursor:pointer; }
+          #adp-debug-content { height:100%; overflow:auto; padding:20px; box-sizing:border-box; }
+          #adp-debug-content h2 { font-size:20px; margin:0 0 16px; }
+          #adp-debug-content button { padding:10px 15px; background:#222; color:#fff; border:0; cursor:pointer; }
+          #adp-debug-content button:disabled { opacity:.5; cursor:wait; }
+          #adp-debug-content a { color:#145c9e; text-decoration:underline; overflow-wrap:break-word; }
+          #adp-debug-status { margin-top:12px; }
+          #adp-debug-data { display:none; }
+        </style>
+        <aside id="adp-debug-panel" aria-label="Debug tools">
+          <button id="adp-debug-toggle" type="button" aria-expanded="false" aria-controls="adp-debug-content">Debug</button>
+          <div id="adp-debug-content" hidden>
+            <h2>Debug Mode</h2>
+            <p>Current question: <strong>{%= CurrentQuestion.Shortcut %}</strong></p>
+            <button id="adp-debug-answer" type="button" data-auto-submit="{%= CurrentADP.Var("debug_auto_answer_submit").ToString().ToLowerCase() %}">Auto Answer</button>
+            <p id="adp-debug-status" role="status" aria-live="polite">{% If CurrentADP.Var("debug_auto_answer_submit").ToString().ToLowerCase() = "true" Then %}Fill this page and advance{% Else %}Fill this page{% EndIf %}</p>
+            <h3>Jump to Section</h3>
+            <ul>
+              {%
+              Dim adpDebugNavTag = CurrentADP.Var("debug_navigation_tag").ToString()
+              Dim adpDebugNavQuestions = Survey.Questions.FilterByTag(adpDebugNavTag)
+              Dim adpDebugNavIndex
+              Dim adpDebugNavURL
+              Dim adpDebugNavPosition
+              For adpDebugNavIndex = 1 To adpDebugNavQuestions.Count
+                Dim adpDebugNavQuestion = adpDebugNavQuestions[adpDebugNavIndex]
+                'Restore the supplied navigation URL format: target by shortcut, not pos.
+                adpDebugNavURL = adpDebugNavQuestion.GotoURL()
+                adpDebugNavPosition = adpDebugNavURL.IndexOf("&pos")
+                If adpDebugNavPosition > 0 Then
+                  adpDebugNavURL = adpDebugNavURL.Left(adpDebugNavPosition - 1)
+                EndIf
+                adpDebugNavURL = adpDebugNavURL + "&shortcut=" + adpDebugNavQuestion.Shortcut + "&ran=" + TrueRandom(9999999)
+              %}
+              <li><a href="{%= adpDebugNavURL %}">{%= adpDebugNavQuestion.Shortcut %}</a></li>
+              {% Next adpDebugNavIndex %}
+            </ul>
+            {% If adpDebugNavQuestions.Count = 0 Then %}
+            <p>No questions matched navigation tag: <strong>{%= adpDebugNavTag %}</strong>.</p>
+            {% EndIf %}
+          </div>
+        </aside>
+        <div id="adp-debug-data" hidden>
+        {%
+        Dim adpDebugIndex
+        Dim adpDebugResponseIndex
+        Dim adpDebugQuestions = CurrentQuestions
+        Dim adpDebugMin
+        Dim adpDebugMax
+        Dim adpDebugMinDate
+        Dim adpDebugMaxDate
+        Dim adpDebugValue
+        Dim adpDebugType
+        Dim adpDebugNonExclusive
+        Dim adpDebugExclusive
+        Dim adpDebugCount
+        For adpDebugIndex = 1 To adpDebugQuestions.Count
+          Dim adpDebugQuestion = adpDebugQuestions[adpDebugIndex]
+          adpDebugType = adpDebugQuestion.Type
+          adpDebugValue = ""
+          If adpDebugType = "numeric" Then
+            adpDebugMin = On(adpDebugQuestion.MinValue <> DK,adpDebugQuestion.MinValue,0)
+            adpDebugMax = On(adpDebugQuestion.MaxValue <> DK,adpDebugQuestion.MaxValue,100)
+            If adpDebugMax >= adpDebugMin Then
+              adpDebugValue = Range(adpDebugMin,adpDebugMax).Shuffle(TrueRandom(10000))[1].ToString()
+            EndIf
+          ElseIf adpDebugType = "open" Then
+            adpDebugValue = On((adpDebugQuestion.MaxValue > 0) and (adpDebugQuestion.LongCaption.Length > adpDebugQuestion.MaxValue),adpDebugQuestion.LongCaption.Left(adpDebugQuestion.MaxValue),adpDebugQuestion.LongCaption)
+          ElseIf adpDebugType = "datetime" Then
+            If adpDebugQuestion.IsTimeOnly Then
+              adpDebugType = "time"
+              adpDebugValue = Range(0,23).Shuffle(TrueRandom(10000))[1].Format("00").ToString() + ":" + Range(0,59).Shuffle(TrueRandom(10000))[1].Format("00").ToString() + ":00"
+            Else
+              adpDebugMinDate = On(adpDebugQuestion.MinDate.ToNumber() <> DK,adpDebugQuestion.MinValue.ToString(),Now.ToString().Split(" ")[1])
+              adpDebugMaxDate = On(adpDebugQuestion.MaxDate.ToNumber() <> DK,adpDebugQuestion.MaxValue.ToString(),(Now - 1).ToString().Split(" ")[1])
+              adpDebugValue = On(TrueRandom(2),adpDebugMinDate,adpDebugMaxDate)
+              If adpDebugQuestion.IsDateOnly Then
+                adpDebugType = "date"
+              Else
+                adpDebugValue = adpDebugValue + "," + Range(0,23).Shuffle(TrueRandom(10000))[1].Format("00").ToString() + ":" + Range(0,59).Shuffle(TrueRandom(10000))[1].Format("00").ToString() + ":00"
+              EndIf
+            EndIf
+          ElseIf adpDebugType = "single" Then
+            adpDebugNonExclusive = {}
+            For adpDebugResponseIndex = 1 To adpDebugQuestion.AvailableResponses.Count
+              If adpDebugQuestion.AvailableResponses[adpDebugResponseIndex].IsHeader = false Then
+                adpDebugNonExclusive.Insert(adpDebugQuestion.AvailableResponses[adpDebugResponseIndex].InputValue().ToNumber())
+              EndIf
+            Next adpDebugResponseIndex
+            If adpDebugNonExclusive.Count > 0 Then
+              adpDebugValue = adpDebugNonExclusive.Shuffle(TrueRandom(10000))[1].ToString()
+            EndIf
+          ElseIf adpDebugType = "multiple" Then
+            'Reset the lists for every question; responses must not leak between questions.
+            adpDebugNonExclusive = {}
+            adpDebugExclusive = {}
+            For adpDebugResponseIndex = 1 To adpDebugQuestion.AvailableResponses.Count
+              If adpDebugQuestion.AvailableResponses[adpDebugResponseIndex].IsHeader = false Then
+              If adpDebugQuestion.AvailableResponses[adpDebugResponseIndex].IsExclusive Then
+                adpDebugExclusive.Insert(adpDebugQuestion.AvailableResponses[adpDebugResponseIndex].InputValue().ToNumber())
+              Else
+                adpDebugNonExclusive.Insert(adpDebugQuestion.AvailableResponses[adpDebugResponseIndex].InputValue().ToNumber())
+              EndIf
+              EndIf
+            Next adpDebugResponseIndex
+            adpDebugMin = On(adpDebugQuestion.MinValue <> DK,adpDebugQuestion.MinValue,1)
+            adpDebugMax = On(adpDebugQuestion.MaxValue <> DK,adpDebugQuestion.MaxValue,adpDebugNonExclusive.Count)
+            If adpDebugMax > adpDebugNonExclusive.Count Then
+              adpDebugMax = adpDebugNonExclusive.Count
+            EndIf
+            If (adpDebugExclusive.Count > 0) and ((adpDebugMax < adpDebugMin) or (TrueRandom(2) = 1)) Then
+              adpDebugValue = adpDebugExclusive.Shuffle(TrueRandom(10000))[1].ToString()
+            ElseIf (adpDebugMax >= adpDebugMin) and (adpDebugNonExclusive.Count > 0) Then
+              adpDebugCount = Range(adpDebugMin,adpDebugMax).Shuffle(TrueRandom(10000))[1]
+              adpDebugValue = adpDebugNonExclusive.SelectRandom(adpDebugCount).Join(",").ToString()
+            EndIf
+          EndIf
+        %}
+          <div data-type="{%= adpDebugType %}" data-inputcode="{%= adpDebugQuestion.InputCode %}" data-values="{%= adpDebugValue %}" data-shortcut="{%= adpDebugQuestion.Shortcut %}"></div>
+        {% Next adpDebugIndex %}
+        </div>
+        <script src="{%:= CurrentADP.URLTo("static/adp.debug.js") %}"></script>
+        {% EndIf %}
     </body>
 </html>
